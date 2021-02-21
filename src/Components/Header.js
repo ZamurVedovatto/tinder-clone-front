@@ -13,7 +13,7 @@ export default function Header() {
 
       <img
         className="header__logo"
-        src="http://1000logos.net/wp-content/uploads/2018/07/tinder-logo.png"
+        src="https://toppng.com/uploads/preview/tinder-logo-transparent-11563247829tbb8yoy9a1.png"
         alt="Tinder Logo"
       />
 
