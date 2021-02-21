@@ -1,18 +1,19 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import './TinderCards.scss'
 import TinderCard from 'react-tinder-card';
+import axios from './../axios';
 
 export default function TinderCards() {
-  const [people, setPeople] = useState([
-    {
-      name: "Elon Musk",
-      url: "https://peaklife.in/wp-content/uploads/2019/06/elon-musk-image.jpg"
-    },
-    {
-      name: "Jeff Bezos",
-      url: "https://computerworld.com.br/wp-content/uploads/2020/01/Em-meio-a-investiga%C3%A7%C3%B5es-e-protestos-Bezos-anuncia-US-1-bilh%C3%A3o-para-%C3%8Dndia.jpg"
-    },
-  ])
+  const [people, setPeople] = useState([])
+
+  useEffect(() => {
+    async function fetchData() {
+      const req = await axios.get('/card');
+      setPeople(req.data);
+      console.log(people)
+    }
+    fetchData();
+  }, [])
 
   const swiped = (direction, nameToDelete) => {
     console.log("remove", nameToDelete)
